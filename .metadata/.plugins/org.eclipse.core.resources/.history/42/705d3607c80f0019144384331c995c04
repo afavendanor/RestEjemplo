@@ -1,0 +1,22 @@
+package co.com.rest.ejemplo.model.service;
+
+import java.util.List;
+
+import co.com.rest.ejemplo.model.entity.ClienteEntity;
+
+public class ClienteServiceImp implements IClienteService{
+
+	@Override
+	public List<ClienteEntity> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ClienteEntity findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}

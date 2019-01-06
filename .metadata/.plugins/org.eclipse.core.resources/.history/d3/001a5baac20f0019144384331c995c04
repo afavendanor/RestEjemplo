@@ -1,0 +1,5 @@
+package co.com.rest.ejemplo.domain;
+
+public class Entity {
+
+}

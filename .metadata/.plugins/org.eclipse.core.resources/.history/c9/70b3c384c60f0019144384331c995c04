@@ -1,0 +1,5 @@
+INSERT INTO CLIENTE(id, nombre, salario, bonificacion, fecha_ingreso) VALUES('10445', 'Andres Avendaño', 1200, 300, SYSDATE());
+INSERT INTO CLIENTE(id, nombre, salario, bonificacion, fecha_ingreso) VALUES('43205', 'Lucas Silva', 3420, 230, SYSDATE());
+INSERT INTO CLIENTE(id, nombre, salario, bonificacion, fecha_ingreso) VALUES('87340', 'Ana Lopez', 2340, 100, SYSDATE());
+INSERT INTO CLIENTE(id, nombre, salario, bonificacion, fecha_ingreso) VALUES('83564', 'Sara Henao', 5430, 300, SYSDATE());
+INSERT INTO CLIENTE(id, nombre, salario, bonificacion, fecha_ingreso) VALUES('63t54', 'Luis Perez', 4300, 600, SYSDATE());

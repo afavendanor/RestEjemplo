@@ -1,0 +1,5 @@
+package co.com.rest.ejemplo.model.repository;
+
+public class IClienteRepository {
+
+}

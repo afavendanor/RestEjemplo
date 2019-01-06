@@ -1,0 +1,11 @@
+package co.com.rest.ejemplo.model.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+import co.com.rest.ejemplo.model.entity.ClienteEntity;
+
+public interface IClienteRepository extends CrudRepository<ClienteEntity, Long>{
+	
+	public List<ClienteEntity> findAll();
+
+}

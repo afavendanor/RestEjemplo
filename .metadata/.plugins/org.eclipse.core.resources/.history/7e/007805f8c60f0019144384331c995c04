@@ -1,0 +1,9 @@
+package co.com.rest.ejemplo.model.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface IClienteRepository extends CrudRepository<ClienteEntity, Long>{
+	
+	
+
+}

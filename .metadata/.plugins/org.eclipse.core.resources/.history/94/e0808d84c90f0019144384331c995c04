@@ -1,0 +1,27 @@
+package co.com.rest.ejemplo.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import co.com.rest.ejemplo.model.entity.ClienteEntity;
+import co.com.rest.ejemplo.model.service.IClienteService;
+
+public class ClienteRestController {
+
+	@Autowired
+	private IClienteService clienteService;
+
+	@GetMapping("/clientes")
+	public ResponseEntity<List<ClienteEntity>> listarFacturas() {
+		List<ClienteEntity> clientes = clienteService.findAll();
+		if (clientes.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<>(clientes, HttpStatus.OK);
+	}
+
+}
