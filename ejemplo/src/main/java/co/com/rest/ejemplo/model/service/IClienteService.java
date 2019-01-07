@@ -12,4 +12,7 @@ public interface IClienteService {
 	
 	public List<ClienteEntity> findActive();
 
+    public ClienteEntity saveCliente(ClienteEntity cliente);
+
+    void deleteCliente(Long id);
 }

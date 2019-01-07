@@ -18,18 +18,20 @@ import javax.validation.constraints.NotNull;
 public class ClienteEntity implements Serializable{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@NotNull
 	private String nombre;
+	@NotNull
 	private double salario;
 	private double bonificacion;
-	
+
+	@NotNull
 	@Column(name = "fecha_ingreso")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fechaIngreso;
-	
+
+	@NotNull
 	public boolean activo;
 
 	public Long getId() {
@@ -64,15 +66,14 @@ public class ClienteEntity implements Serializable{
 		this.bonificacion = bonificacion;
 	}
 
-	public Date getFecha_ingreso() {
+	public Date getFechaIngreso() {
 		return fechaIngreso;
 	}
 
 	public void setFechaIngreso(Date fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
-	
-	
+
 	public boolean isActivo() {
 		return activo;
 	}
@@ -80,11 +81,6 @@ public class ClienteEntity implements Serializable{
 	public void setActivo(boolean activo) {
 		this.activo = activo;
 	}
-
-	public Date getFechaIngreso() {
-		return fechaIngreso;
-	}
-
 
 	private static final long serialVersionUID = 1L;
 

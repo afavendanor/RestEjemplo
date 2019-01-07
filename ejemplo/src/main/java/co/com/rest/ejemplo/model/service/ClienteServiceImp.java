@@ -2,6 +2,8 @@ package co.com.rest.ejemplo.model.service;
 
 import java.util.List;
 
+import co.com.rest.ejemplo.exception.ClienteNoExisteException;
+import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,8 +33,21 @@ public class ClienteServiceImp implements IClienteService {
 	
 	@Override
 	public List<ClienteEntity> findActive() {
-		throw new ApplicationException("Error quemado");
-		//return clienteRepository.findActive();
+		return clienteRepository.findActive();
+	}
+
+	@Override
+	public ClienteEntity saveCliente(ClienteEntity cliente) {
+		return clienteRepository.save(cliente);
+	}
+
+	@Override
+	public void deleteCliente(Long id) {
+		ClienteEntity cliente =   clienteRepository.findById(id).orElse(null);
+		if(cliente == null) {
+			throw new ClienteNoExisteException("El cliente no se encuentra registrado en eñ sistema");
+		}
+		clienteRepository.deleteById(id);
 	}
 
 }

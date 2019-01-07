@@ -5,10 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import co.com.rest.ejemplo.model.entity.ClienteEntity;
 import co.com.rest.ejemplo.model.service.IClienteService;
@@ -49,6 +46,18 @@ public class ClienteRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(clientes, HttpStatus.OK);
+	}
+
+	@PostMapping("/crearCliente")
+	public ResponseEntity<ClienteEntity> crearCliente(@RequestBody ClienteEntity cliente) {
+		this.clienteService.saveCliente(cliente);
+		return new ResponseEntity<>(HttpStatus.CREATED);
+	}
+
+	@DeleteMapping("/borrarCliente/{id}")
+	public ResponseEntity borrarCliente(@PathVariable Long id) {
+		this.clienteService.deleteCliente(id);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 }
