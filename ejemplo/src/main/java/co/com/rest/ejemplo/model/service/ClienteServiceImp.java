@@ -2,12 +2,10 @@ package co.com.rest.ejemplo.model.service;
 
 import java.util.List;
 
-import co.com.rest.ejemplo.exception.ClienteNoExisteException;
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import co.com.rest.ejemplo.exception.ApplicationException;
+import co.com.rest.ejemplo.exception.ClienteNoExisteException;
 import co.com.rest.ejemplo.model.entity.ClienteEntity;
 import co.com.rest.ejemplo.model.repository.IClienteRepository;
 
@@ -45,7 +43,7 @@ public class ClienteServiceImp implements IClienteService {
 	public void deleteCliente(Long id) {
 		ClienteEntity cliente =   clienteRepository.findById(id).orElse(null);
 		if(cliente == null) {
-			throw new ClienteNoExisteException("El cliente no se encuentra registrado en eñ sistema");
+			throw new ClienteNoExisteException("El cliente no se encuentra registrado en el sistema");
 		}
 		clienteRepository.deleteById(id);
 	}

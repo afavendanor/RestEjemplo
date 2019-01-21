@@ -48,12 +48,14 @@ public class ClienteRestController {
 		return new ResponseEntity<>(clientes, HttpStatus.OK);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@PostMapping("/crearCliente")
-	public ResponseEntity<ClienteEntity> crearCliente(@RequestBody ClienteEntity cliente) {
+	public ResponseEntity crearCliente(@RequestBody ClienteEntity cliente) {
 		this.clienteService.saveCliente(cliente);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@DeleteMapping("/borrarCliente/{id}")
 	public ResponseEntity borrarCliente(@PathVariable Long id) {
 		this.clienteService.deleteCliente(id);

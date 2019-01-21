@@ -2,28 +2,35 @@ package co.com.rest.ejemplo.model.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "cliente")
-public class ClienteEntity implements Serializable{
+public class ClienteEntity implements Serializable {
+
+	@OneToMany(mappedBy = "cliente")
+	private List<CuentaEntity> listaCuentas;
 
 	@Id
 	private Long id;
-	
+
 	@NotNull
 	private String nombre;
 	@NotNull
 	private double salario;
+	@NotNull
 	private double bonificacion;
 
 	@NotNull
@@ -33,54 +40,6 @@ public class ClienteEntity implements Serializable{
 
 	@NotNull
 	public boolean activo;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public double getSalario() {
-		return salario;
-	}
-
-	public void setSalario(double salario) {
-		this.salario = salario;
-	}
-
-	public double getBonificacion() {
-		return bonificacion;
-	}
-
-	public void setBonificacion(double bonificacion) {
-		this.bonificacion = bonificacion;
-	}
-
-	public Date getFechaIngreso() {
-		return fechaIngreso;
-	}
-
-	public void setFechaIngreso(Date fechaIngreso) {
-		this.fechaIngreso = fechaIngreso;
-	}
-
-	public boolean isActivo() {
-		return activo;
-	}
-
-	public void setActivo(boolean activo) {
-		this.activo = activo;
-	}
 
 	private static final long serialVersionUID = 1L;
 
