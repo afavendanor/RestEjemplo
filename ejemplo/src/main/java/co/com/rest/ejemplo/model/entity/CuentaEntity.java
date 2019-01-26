@@ -6,36 +6,76 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Data
+import co.com.rest.ejemplo.util.CuentaType;
+
 @Entity
 @Table(name = "cuenta")
 public class CuentaEntity implements Serializable {
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id")
-	private ClienteEntity cliente;
-	
-	@Column(name = "cliente_id")
-	private Long idCliente;
-	
 	@Id
-	@Column(name = "cuenta_id")
+	@Column(name = "id_cuenta")
 	private String idCuenta;
 	
-	@NotNull
-	//@Enumerated(EnumType.STRING)
-	private String tipo;
+	@ManyToOne()
+	@JoinColumn(name = "id_cliente", referencedColumnName = "id", nullable = false, updatable = false, insertable = false)
+	@JsonIgnoreProperties("cuentas")
+	private ClienteEntity cliente;
+
+	@Column(name = "id_cliente")
+	private Long idCliente;
+
+	@Enumerated(EnumType.STRING)
+	private CuentaType tipo;
 	@NotNull
 	private double saldo;
+
+	public ClienteEntity getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(ClienteEntity cliente) {
+		this.cliente = cliente;
+	}
+
+	public Long getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(Long idCliente) {
+		this.idCliente = idCliente;
+	}
+
+	public String getIdCuenta() {
+		return idCuenta;
+	}
+
+	public void setIdCuenta(String idCuenta) {
+		this.idCuenta = idCuenta;
+	}
+
+	public CuentaType getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(CuentaType tipo) {
+		this.tipo = tipo;
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
 
 	private static final long serialVersionUID = 1L;
 
