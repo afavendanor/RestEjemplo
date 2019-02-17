@@ -41,6 +41,16 @@ public class ClienteEntity implements Serializable {
 	@NotNull
 	public boolean activo;
 
+	public ClienteEntity(Long id, String nombre, double salario, double bonificacion, Date fechaIngreso,
+			boolean activo) {
+		this.id = id;
+		this.nombre = nombre;
+		this.salario = salario;
+		this.bonificacion = bonificacion;
+		this.fechaIngreso = fechaIngreso;
+		this.activo = activo;
+	}
+
 	public Long getId() {
 		return id;
 	}

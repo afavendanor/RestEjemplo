@@ -36,7 +36,7 @@ private ICuentaService CuentaService;
 		return new ResponseEntity<>(cuentas, HttpStatus.OK);
 	}
 
-	@GetMapping("/Cuentas/{id}")
+	@GetMapping("/cuentas/{id}")
 	public ResponseEntity<CuentaEntity> buscarCuenta(@PathVariable Long id) {
 		CuentaEntity cuenta = CuentaService.findById(id);
 		if (cuenta == null) {

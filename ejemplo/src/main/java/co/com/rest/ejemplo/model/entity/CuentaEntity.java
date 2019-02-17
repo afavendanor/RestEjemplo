@@ -22,7 +22,7 @@ public class CuentaEntity implements Serializable {
 
 	@Id
 	@Column(name = "id_cuenta")
-	private String idCuenta;
+	private Long idCuenta;
 	
 	@ManyToOne()
 	@JoinColumn(name = "id_cliente", referencedColumnName = "id", nullable = false, updatable = false, insertable = false)
@@ -36,6 +36,15 @@ public class CuentaEntity implements Serializable {
 	private CuentaType tipo;
 	@NotNull
 	private double saldo;
+	
+	
+
+	public CuentaEntity(Long idCuenta, Long idCliente, CuentaType tipo, double saldo) {
+		this.idCuenta = idCuenta;
+		this.idCliente = idCliente;
+		this.tipo = tipo;
+		this.saldo = saldo;
+	}
 
 	public ClienteEntity getCliente() {
 		return cliente;
@@ -53,11 +62,11 @@ public class CuentaEntity implements Serializable {
 		this.idCliente = idCliente;
 	}
 
-	public String getIdCuenta() {
+	public Long getIdCuenta() {
 		return idCuenta;
 	}
 
-	public void setIdCuenta(String idCuenta) {
+	public void setIdCuenta(Long idCuenta) {
 		this.idCuenta = idCuenta;
 	}
 

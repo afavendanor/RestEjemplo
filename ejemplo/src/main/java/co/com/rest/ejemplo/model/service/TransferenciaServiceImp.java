@@ -1,6 +1,7 @@
 package co.com.rest.ejemplo.model.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
@@ -16,6 +17,9 @@ public class TransferenciaServiceImp implements ITransferenciaService {
 
 	private ICuentaService cuentaService;
 	private final TransactionTemplate transactionTemplate;
+	
+	@Value("${valor_maximo_transferencia}")
+	private double valorMaximoTransferencia;
 
 	@Autowired
 	public TransferenciaServiceImp(ICuentaService cuentaService, PlatformTransactionManager transactionManager) {
@@ -25,7 +29,8 @@ public class TransferenciaServiceImp implements ITransferenciaService {
 
 	@Override
 	public void realizarTransferencia(Transferencia transferencia) {
-		ValidarRetiro.validarMonto(transferencia.getMonto());
+		ValidarRetiro.validarMontoNegativo(transferencia.getMonto());
+		ValidarRetiro.validarMontoTransferencia(transferencia.getMonto(), valorMaximoTransferencia);
 		CuentaEntity cuentaOrigen = cuentaService.findById(transferencia.getIdCuentaOrigen());
 		ValidarRetiro.validarSaldoMinimo(cuentaOrigen.getSaldo() - transferencia.getMonto());
 
