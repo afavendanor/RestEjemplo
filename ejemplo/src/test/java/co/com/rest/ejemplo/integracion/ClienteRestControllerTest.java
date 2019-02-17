@@ -40,9 +40,9 @@ public class ClienteRestControllerTest {
 	@Test
 	public void listarCuentas() throws Exception {
 
-		List<CuentaEntity> cuentas = Arrays.asList(new CuentaEntity(1234L, 1234L, CuentaType.AHORRO, 2500)); 
+		//List<CuentaEntity> cuentas = Arrays.asList(new CuentaEntity(1234L, 1234L, CuentaType.AHORRO, 2500)); 
 
-		when(cuentaRepository.findAll()).thenReturn(cuentas);
+		//when(cuentaRepository.findAll()).thenReturn(cuentas);
 
 		this.mockMvc.perform(MockMvcRequestBuilders.get("/api/cuentas").accept(MediaType.APPLICATION_JSON))
 				.andDo(print()).andExpect(status().isOk()).andReturn();

@@ -45,6 +45,8 @@ public class CuentaEntity implements Serializable {
 		this.tipo = tipo;
 		this.saldo = saldo;
 	}
+	
+	public CuentaEntity() {}
 
 	public ClienteEntity getCliente() {
 		return cliente;

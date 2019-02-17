@@ -50,6 +50,8 @@ public class ClienteEntity implements Serializable {
 		this.fechaIngreso = fechaIngreso;
 		this.activo = activo;
 	}
+	
+	public ClienteEntity() {}
 
 	public Long getId() {
 		return id;
