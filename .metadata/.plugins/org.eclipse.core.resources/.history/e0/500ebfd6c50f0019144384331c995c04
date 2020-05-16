@@ -1,9 +1,0 @@
-package co.com.rest.ejemplo.exception;
-
-public class ApplicationException extends RuntimeException{
-	
-	public ApplicationException(String mensaje) {
-		super(mensaje);
-	}
-	
-}
