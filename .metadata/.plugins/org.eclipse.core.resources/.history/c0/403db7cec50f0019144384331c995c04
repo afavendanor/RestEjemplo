@@ -1,5 +1,0 @@
-package co.com.rest.ejemplo.exception;
-
-public class ApplicationException {
-
-}
