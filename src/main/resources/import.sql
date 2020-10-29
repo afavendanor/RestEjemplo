@@ -1,4 +1,4 @@
-INSERT INTO cliente(nombre, salario, bonificacion, fecha_ingreso, activo) VALUES('Andres Avendaño', 1200, 300, SYSDATE(),true);
+INSERT INTO cliente(nombre, salario, bonificacion, fecha_ingreso, activo) VALUES('Andres Avendano', 1200, 300, SYSDATE(),true);
 INSERT INTO cliente(nombre, salario, bonificacion, fecha_ingreso, activo) VALUES('Lucas Silva', 3420, 230, SYSDATE()-68,false );
 INSERT INTO cliente(nombre, salario, bonificacion, fecha_ingreso, activo) VALUES('Ana Lopez', 2340, 100, SYSDATE()-984,true );
 INSERT INTO cliente(nombre, salario, bonificacion, fecha_ingreso, activo) VALUES('Sara Henao', 5430, 300, SYSDATE(), true );
